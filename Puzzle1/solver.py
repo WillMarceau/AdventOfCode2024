@@ -40,12 +40,26 @@ def calcDistance(l1, l2):
     return count
         
 
+def calcSimilarity(l1, l2):
+    # this func calcs the similarity score where the score is the sum of all the numbers in the first list
+    # multiplied by the number of times they show up in the second list
 
+    score = 0
+    for num1 in l1:
+        count = 0
+        for num2 in l2:
+            if num1 == num2:
+                count += 1
+        score += (num1 * count)
+
+    return score
 
 def main():
     l1, l2 = parseInput()
+    score = calcSimilarity(l1, l2)
     result = calcDistance(l1, l2)
-    print(result)
+    print("part 1:", result)
+    print("part 2:", score)
 
 
 
